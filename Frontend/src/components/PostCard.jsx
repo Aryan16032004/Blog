@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { FaHeart, FaRegHeart, FaRegComment } from 'react-icons/fa';
 import appwriteService from "../appwrite/config";
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-function PostCard({ _id, title, coverImage, user }) {
+function PostCard({ _id, title, coverImage }) {
   const [likes, setLikes] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
   const [commentNum, setCommentNum] = useState(0);
+
+const userData = useSelector((state) => state.auth.userData);
+const user=userData.data._id
 
   useEffect(() => {
     const getcomments = async () => {
@@ -23,10 +27,15 @@ function PostCard({ _id, title, coverImage, user }) {
 
   useEffect(() => {
     const fetchLikes = async () => {
+      
+      
       try {
         const response = await appwriteService.getPostLikes(_id);
         setLikes(response.likes.length);
-        const isLikedByUser = response.likes.some(like => like._id === user._id);
+        // console.log(_id,response.likes,user._id);
+        
+        const isLikedByUser = response.likes.some(like => like._id === user);
+        
         setIsLiked(isLikedByUser);
       } catch (error) {
         console.error('Error fetching post likes', error);
@@ -40,7 +49,7 @@ function PostCard({ _id, title, coverImage, user }) {
     try {
       const response = await appwriteService.toggleLike(_id);
       setLikes(response.likes.length);
-      const isLikedByUser = response.likes.some(like => like === user._id);
+      const isLikedByUser = response.likes.some(like => like === user);
       setIsLiked(isLikedByUser);
     } catch (error) {
       console.error('Error liking/unliking post', error);
@@ -64,6 +73,9 @@ function PostCard({ _id, title, coverImage, user }) {
 
       <div className='flex justify-between items-center mt-4'>
         <div className='flex items-center'>
+          {/* <FaRegHeart size={24}
+              className="mr-2 cursor-pointer text-gray-500"
+              onClick={handleLike}/> */}
           {isLiked ? (
             <FaHeart
               size={24}
