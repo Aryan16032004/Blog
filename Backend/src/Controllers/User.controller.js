@@ -47,7 +47,7 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 
     const profileImageLocalPath=req.file?.path
-   //  console.log(profileImageLocalPath);
+    console.log(profileImageLocalPath);
     
 
     if(!profileImageLocalPath){

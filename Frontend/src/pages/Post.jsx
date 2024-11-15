@@ -16,6 +16,8 @@ export default function Post() {
         if (id) {
             appwriteService.getPost(id) 
             .then((post) => {
+                console.log("Post", post);
+                
                setPost(post);
             });
         } else navigate("/");
@@ -34,8 +36,9 @@ export default function Post() {
     return post ? (
         <div className="py-8">
             <Container>
+            <p className="text-custom-yellow font-bold text-lg">Posted by {post.user.username}</p>
                 <div className="flex flex-col md:flex-row justify-between items-start mb-4">
-                    <div className="w-full md:w-1/3 flex justify-center md:mr-6"> 
+                    <div className="w-full md:w-1/2 flex justify-center md:mr-6"> 
                         <img
                             src={post.coverImage}
                             alt={post.title}
@@ -44,7 +47,7 @@ export default function Post() {
                     </div>
                     <div className="w-full md:w-2/3">
                         <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-                        <div className="browser-css">
+                        <div className="browser-css text-custom-yellow">
                             {parse(post.content)}
                         </div>
                     </div>

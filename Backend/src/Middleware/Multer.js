@@ -1,15 +1,21 @@
 import multer from "multer"
-
-const storage =  multer.diskStorage({
-    destination:  function (req, file, cb) {
-       cb(null, "public/uploadImage")
-    },
-    filename: function (req, file, cb) {
-    //   const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-    //   cb(null, file.fieldname + '-' + uniqueSuffix)
-    cb(null, file.originalname)
-    }
-  })
+let upload;
+try {
+  const storage =  multer.diskStorage({
+      destination:  function (req, file, cb) {
+         cb(null, "public/uploadImage")
+      },
+      filename: function (req, file, cb) {
+      //   const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      //   cb(null, file.fieldname + '-' + uniqueSuffix)
+      cb(null, file.originalname)
+      }
+    })
+    upload = multer({ storage });
+} catch (error) {
+  console.log("Multer error",error)
+  
+}
 
 // import multer from "multer";
 // import { v4 as uuidv4 } from "uuid";
@@ -28,4 +34,4 @@ const storage =  multer.diskStorage({
 // const upload=multer({storage:storage});
 // module.exports=upload;
 
-export const upload = multer({storage})
+export {upload}

@@ -12,7 +12,7 @@ function LogoutBtn() {
     try {
       await authService.logout(); // Wait for the logout to complete
       dispatch(logout()); // Dispatch the logout action
-      navigate("/login"); // Navigate to the login page
+      navigate("/"); // Navigate to the login page
     } catch (error) {
       console.error("Logout failed:", error); // Handle any potential errors
     }

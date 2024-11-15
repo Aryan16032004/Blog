@@ -23,14 +23,14 @@ function App() {
   }, [])
   
   return !loading ? (
-    <div className="min-h-screen flex flex-col bg-blue-200">
+    <div className="min-h-screen flex flex-col bg-black">
       {/* Header */}
       <header className="w-ful shadow-md">
         <Header />
       </header>
       
       {/* Main Content */}
-      <main className="flex-grow flex flex-col items-center justify-center">
+      <main className="flex flex-col items-center justify-center">
         {/* Render the Outlet */}
         <Outlet />
       </main>

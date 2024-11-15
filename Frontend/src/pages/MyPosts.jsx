@@ -34,7 +34,7 @@ function MyPosts() {
         return (
             <div className='w-full py-8'>
                 <Container>
-                    <div className='flex justify-center'>
+                    <div className='flex justify-center text-custom-yellow'>
                         <h2>Loading posts...</h2> 
                     </div>
                 </Container>
@@ -65,8 +65,8 @@ function MyPosts() {
                             </div>
                         ))
                     ) : (
-                        <div className="p-2 w-full">
-                            <h2>No posts available</h2>
+                        <div className="p-2 w-full text-custom-yellow">
+                            <h2 >No posts available</h2>
                         </div>
                     )}
                 </div>

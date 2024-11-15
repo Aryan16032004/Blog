@@ -1,4 +1,3 @@
-import conf from '../conf/conf.js';
 import axios from "axios"
 
 export class AuthService {
@@ -13,7 +12,7 @@ export class AuthService {
           Object.entries(fields).forEach(([key, value]) => formData.append(key, value));
       
           // Append profile image separately
-          formData.append("profileImage", profileImage[0]);
+          formData.append("profileImage", profileImage);
       
           // Send the POST request with FormData
           const userAccount = await axios.post('/api/v1/users/register', formData, {
