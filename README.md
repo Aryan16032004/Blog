@@ -4,7 +4,7 @@ This is a simple blog application where users can create, edit, delete, like, an
 
 ## Deployed Project
 
-You can view the live project here: [Blog App - Live](https://blog-ten-ebon-14.vercel.app/home)
+You can view the live project here: [Blog App - Live](https://blog-ten-ebon-14.vercel.app/)
 
 ## Tech Stack
 
