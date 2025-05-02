@@ -18,6 +18,10 @@ import Post from "./pages/Post";
 import AllPosts from "./pages/AllPosts";
 import MyPosts from './pages/MyPosts.jsx'
 import AuthPage from './components/LoginAndSignin.jsx'
+import axios from 'axios';
+
+// Set up axios default configuration
+axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
   {
