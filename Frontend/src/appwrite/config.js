@@ -17,7 +17,7 @@ export class Service{
                     "Content-Type": "multipart/form-data",
                 },
             };
-            const response = await axios.post("/api/v1/users/create-post", formData, config);
+            const response = await axios.post("https://blog-tm1k.onrender.com/api/v1/users/create-post", formData, config);
             return response.data;
         } catch (error) {
             console.log("Error in createPost:", error);
@@ -34,7 +34,7 @@ export class Service{
             };
             console.log("sending the data ");
             
-            const response= await axios.patch(`/api/v1/users/update/${id}`,formdata,config)
+            const response= await axios.patch(`https://blog-tm1k.onrender.com/api/v1/users/update/${id}`,formdata,config)
             // console.log(response.data);
             
             return response.data;
@@ -46,7 +46,7 @@ export class Service{
 
     async deletePost(id){
         try {
-           await axios.delete(`/api/v1/users/delete/${id}`)
+           await axios.delete(`https://blog-tm1k.onrender.com/api/v1/users/delete/${id}`)
             return true
         } catch (error) {
             console.log("Appwrite serive :: deletePost :: error", error);
@@ -56,7 +56,7 @@ export class Service{
 
     async getPost(id){
         try {
-           const response=await axios.get(`/api/v1/users/${id}`)
+           const response=await axios.get(`https://blog-tm1k.onrender.com/api/v1/users/${id}`)
            return response.data
         } catch (error) {
             console.log("Appwrite serive :: getPost :: error", error);
@@ -66,7 +66,7 @@ export class Service{
 
     async getPosts(){
         try {
-            return await axios.get("/api/v1/users/all-posts")
+            return await axios.get("https://blog-tm1k.onrender.com/api/v1/users/all-posts")
         } catch (error) {
             console.log("Appwrite serive :: getPosts :: error", error);
             return false
@@ -78,7 +78,7 @@ export class Service{
         try {
         
             
-            const response = await axios.get("/api/v1/users/user-posts")
+            const response = await axios.get("https://blog-tm1k.onrender.com/api/v1/users/user-posts")
             return response
 
         } catch (error) {
@@ -89,7 +89,7 @@ export class Service{
 
     async toggleLike(id){
         try {
-            const response=await axios.put(`/api/v1/users/${id}/like`)
+            const response=await axios.put(`https://blog-tm1k.onrender.com/api/v1/users/${id}/like`)
             return response.data
         } catch (error) {
             console.log("like error",error);
@@ -101,7 +101,7 @@ export class Service{
     async getPostLikes(id){
         try {
 
-            const response=await axios.get(`/api/v1/users/${id}/like`)            
+            const response=await axios.get(`https://blog-tm1k.onrender.com/api/v1/users/${id}/like`)            
             return response.data
             
         } catch (error) {
@@ -116,7 +116,7 @@ export class Service{
             console.log(content);
             console.log(postId);
             
-            const response =await axios.post("/api/v1/users/add-comment",{
+            const response =await axios.post("https://blog-tm1k.onrender.com/api/v1/users/add-comment",{
                 content,
                 postId,
                 parentId
@@ -132,7 +132,7 @@ export class Service{
 
     async getComments(id){
         try {            
-            const response =await axios.get(`/api/v1/users/comment/${id}`)
+            const response =await axios.get(`https://blog-tm1k.onrender.com/api/v1/users/comment/${id}`)
             // console.log("response",response.data);
             
             return response.data

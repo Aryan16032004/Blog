@@ -52,9 +52,10 @@ function AuthPage() {
                     password: formData.password,
                 });
                 if (session) {
+                    navigate("/home");
                     const userData = await authService.getCurrentUser();
                     if (userData) dispatch(authLogin({ userData }));
-                    navigate("/home");
+                    
                 }
             }
         } catch (error) {

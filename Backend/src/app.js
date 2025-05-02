@@ -2,9 +2,13 @@
 import express from "express"
 
 import cookieParser from "cookie-parser"
+import cors from "cors";
 
 const app = express();
-
+app.use(cors({
+    origin: "https://blog-ten-ebon-14.vercel.app",
+    credentials: true // if you're using cookies/auth headers
+}));
 
 
 app.use(express.json())

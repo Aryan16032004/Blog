@@ -15,7 +15,7 @@ export class AuthService {
           formData.append("profileImage", profileImage);
       
           // Send the POST request with FormData
-          const userAccount = await axios.post('/api/v1/users/register', formData, {
+          const userAccount = await axios.post('https://blog-tm1k.onrender.com/api/v1/users/register', formData, {
             headers: { "Content-Type": "multipart/form-data" },
           });
       
@@ -33,7 +33,7 @@ export class AuthService {
 
     async login({email, password}) {
         try {
-            return await axios.post('/api/v1/users/login', {
+            return await axios.post('https://blog-tm1k.onrender.com/api/v1/users/login', {
         email,
         password,
       });
@@ -44,7 +44,7 @@ export class AuthService {
 
     async getCurrentUser() {
         try {
-            const response= await axios.get('/api/v1/users/currentUser')
+            const response= await axios.get('https://blog-tm1k.onrender.com/api/v1/users/currentUser')
             return response.data
         } catch (error) {
             console.log("getCurrentUser :: error", error);
@@ -56,7 +56,7 @@ export class AuthService {
     async logout() {
 
         try {
-            await axios.post('/api/v1/users/logout');
+            await axios.post('https://blog-tm1k.onrender.com/api/v1/users/logout');
         } catch (error) {
             console.log("Appwrite serive :: logout :: error", error);
         }
