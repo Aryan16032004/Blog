@@ -28,7 +28,7 @@ export default function Post() {
     const deletePost = () => {
         appwriteService.deletePost(post._id).then((status) => {
             if (status) {
-                navigate("/");
+                navigate("/my-posts");
             }
         });
     };
